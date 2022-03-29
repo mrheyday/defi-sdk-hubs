@@ -1,6 +1,6 @@
-site_name: 'DeFi SDK'
-site_description: 'DeFi SDK Docmentation'
-repo_url: https://github.com/zeriontech/defi-sdk/  
+site_name: "DeFi SDK"
+site_description: "DeFi SDK Docmentation"
+repo_url: https://github.com/zeriontech/defi-sdk/
 
 nav:
   - index.md
@@ -8,19 +8,19 @@ nav:
   - architecture.md
   - interacting.md
   - Supported protocols:
-    - supported-protocols/adapter-registry.md
-    - supported-protocols/read-only-adapters.md
-    - supported-protocols/interactive-adapters.md
+      - supported-protocols/adapter-registry.md
+      - supported-protocols/read-only-adapters.md
+      - supported-protocols/interactive-adapters.md
   - Creating your adapters:
-    - creating-your-adapters/index.md
-    - creating-your-adapters/read-only-adapters.md
-    - creating-your-adapters/interactive-adapters.md
+      - creating-your-adapters/index.md
+      - creating-your-adapters/read-only-adapters.md
+      - creating-your-adapters/interactive-adapters.md
   - addresses.md
 
 theme:
   name: material
   features:
-  - navigation.expand
+    - navigation.expand
 
 markdown_extensions:
   - attr_list
@@ -29,4 +29,3 @@ markdown_extensions:
 
 plugins:
   - techdocs-core
-
