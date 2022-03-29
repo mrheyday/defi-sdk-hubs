@@ -7,7 +7,7 @@
 [![Discord](https://badgen.net/badge/zerion/Zerion?icon=discord&label=discord)](https://go.zerion.io/discord)
 [![Twitter Follow](https://badgen.net/twitter/follow/zerion_io?icon=twitter)](https://twitter.com/intent/follow?screen_name=zerion_io)
 
-**DeFi SDK** is an open-source system of smart contracts designed for precise DeFi portfolio accounting. To put it simply, DeFi SDK is the on-chain *balanceOf* for DeFi protocols.
+**DeFi SDK** is an open-source system of smart contracts designed for precise DeFi portfolio accounting. To put it simply, DeFi SDK is the on-chain _balanceOf_ for DeFi protocols.
 
 If you have any questions about DeFi SDK, feel free to reach out to us on our [Discord server](https://go.zerion.io/discord).
 
@@ -15,13 +15,16 @@ If you have any questions about DeFi SDK, feel free to reach out to us on our [D
 
 ## Features
 
-**💥Query user assets and debt deposited in DeFi protocols like *Maker, Aave, dYdX*, etc.**
+**💥Query user assets and debt deposited in DeFi protocols like _Maker, Aave, dYdX_, etc.**
+
 > How much debt does `0xdead..beef` have on Compound?
 
 **📊Get the underlying components of complex derivative ERC20 tokens**
+
 > How much `cUSDC` vs `ETH` does `ETHMACOAPY` have?
 
 **✨Interact with multiple DeFi protocols in a unified way**
+
 > See [How to interact with DeFi SDK contracts](docs/interacting.md)
 
 ## Addresses
@@ -30,13 +33,11 @@ If you have any questions about DeFi SDK, feel free to reach out to us on our [D
 
 All the deployed contracts' addresses are available [here](docs/addresses.md).
 
-
 ## How to Add Your Adapter
 
 The full instructions on how to add a custom adapter to the **AdapterRegistry** contract may be found in our [docs](docs/creating-your-adapters/index.md).
 
 If you have questions and/or want to add your adapter to Zerion reach out to us on our [Discord server](https://go.zerion.io/discord).
-
 
 ## Security Vulnerabilities 🛡
 
@@ -47,9 +48,10 @@ If you discover a security vulnerability within DeFi SDK, please send us an e-ma
 This project uses Truffle and web3js for all Ethereum interactions and testing.
 
 ### Set environment
-Rename `.env.sample` file to `.env`, and fill in the env variables. 
 
-`MNEMONIC` and `INFURA_API_KEY` are required for `core` and `adapters` tests. 
+Rename `.env.sample` file to `.env`, and fill in the env variables.
+
+`MNEMONIC` and `INFURA_API_KEY` are required for `core` and `adapters` tests.
 `PRIVATE_KEY` is required for `interactiveAdapters` tests.
 
 ### Compile contracts

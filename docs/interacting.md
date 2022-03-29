@@ -7,7 +7,8 @@ It allows to check balances and exchange rates for tokens used in the different 
 
 Please, read the [Notes](#notes) before using this contract.
 
---- 
+---
+
 ```solidity
 getBalances(address account) returns (ProtocolBalance[])
 ```
@@ -17,7 +18,7 @@ The function takes account address as the only parameter.
 It iterates over supported protocols, all their adapters and supported tokens and return balances of the tokens locked on the supported protocols.
 
 The function returns an array of the `ProtocolBalance` structs.
-Its exact definition may be found in [Structs.sol](https://github.com/zeriontech/defi-sdk/blob/master/contracts/Structs.sol){target=_blank}.
+Its exact definition may be found in [Structs.sol](https://github.com/zeriontech/defi-sdk/blob/master/contracts/Structs.sol){target=\_blank}.
 
 This struct has protocol metadata as the first field.
 After that, adapter balances are added.
@@ -74,14 +75,16 @@ The following object is an example of `ProtocolBalance` struct.
 }
 ```
 
---- 
+---
+
 ```solidity
 getProtocolBalances(address account, string[] protocolNames) returns (ProtocolBalance[])
 ```
 
 The function works exactly as `getBalances()`, but iterates only over the selected protocols. `protocolNames` consists of protocol names that are listed in [Supported protocols](#supported-protocols) section.
 
---- 
+---
+
 ```solidity
 getAdapterBalances(address account, address[] adapters) returns (AdapterBalance[])
 ```
@@ -89,7 +92,8 @@ getAdapterBalances(address account, address[] adapters) returns (AdapterBalance[
 The function iterates only over the selected adapters.
 `adapters` may consist both of supported and unsupported adapters.
 
---- 
+---
+
 ```solidity
 getAdapterBalance(address account, address adapter, address[] tokens) returns (AdapterBalance)
 ```
@@ -98,14 +102,16 @@ The function iterates only over the selected tokens for the selected adapter.
 This is the preferred way of getting balances for pools like Uniswap V1 and Balancer (as they do not have any supported tokens in the registry).
 The best option of getting the adapter address is calling `getProtocolAdapters('Protocol name')[0]`.
 
---- 
+---
+
 ```solidity
 getProtocolNames() returns (string[])
 ```
 
 The function returns the list of protocols supported by the **AdapterManager** contract.
 
---- 
+---
+
 ```solidity
 getProtocolMetadata(string protocolName) returns (ProtocolMetadata)
 ```
@@ -114,23 +120,26 @@ The function returns the protocol metadata, i.e. name, one line description, ico
 This info may be upgraded by the `owner`.
 After any upgrade, the protocol version will be increased by 1.
 
---- 
+---
+
 ```solidity
 getProtocolAdapters(string protocolName) returns (address[])
 ```
- 
- The function returns the list of protocol adapters for the given protocol name.
+
+The function returns the list of protocol adapters for the given protocol name.
 After any upgrade, the protocol version will be increased by 1.
 
---- 
+---
+
 ```solidity
 getSupportedTokens(address adapter) returns (address[])
 ```
- 
- The function returns the list supported tokens for the given adapter address.
+
+The function returns the list supported tokens for the given adapter address.
 After any upgrade, the protocol version will be increased by 1.
 
---- 
+---
+
 ```solidity
 getFullTokenBalance(string tokenType, address token) returns (FullTokenBalance)
 getFinalFullTokenBalance(string tokenType, address token) returns (FullTokenBalance)
@@ -155,7 +164,7 @@ More detailed information about adapters may be found in [adapters](supported-pr
 
 3. If the balance is inaccessible, the registry will return 0 and, thus, will filter out the balance.
 
-4. If the token's metadata is inaccessible, the **AdapterRegistry** contract will return 
-    - "Not available" as token name, 
-    - "N/A" as token symbol,
-    - 0 as token decimals.
+4. If the token's metadata is inaccessible, the **AdapterRegistry** contract will return
+   - "Not available" as token name,
+   - "N/A" as token symbol,
+   - 0 as token decimals.
