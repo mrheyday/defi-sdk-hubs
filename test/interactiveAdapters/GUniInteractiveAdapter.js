@@ -28,7 +28,7 @@ const ZERO = "0x0000000000000000000000000000000000000000";
 const ProtocolAdapterRegistry = artifacts.require("./ProtocolAdapterRegistry");
 const GUniV1Adapter = artifacts.require("./GUniInteractiveAdapter");
 const UniswapV2ExchangeAdapter = artifacts.require(
-  "./UniswapV2ExchangeInteractiveAdapter"
+  "./UniswapV2ExchangeInteractiveAdapter",
 );
 const WethAdapter = artifacts.require("./WethInteractiveAdapter");
 const Core = artifacts.require("./Core");
@@ -76,7 +76,7 @@ contract.only("GUniInteractiveAdapter", () => {
           WETH_ASSET_ADAPTER,
         ],
         [protocolAdapterAddress, uniswapAdapterAddress, wethAdapterAddress],
-        [[daiFraxAddress], [], []]
+        [[daiFraxAddress], [], []],
       )
       .send({
         from: accounts[0],
@@ -90,7 +90,7 @@ contract.only("GUniInteractiveAdapter", () => {
     await Router.new(core.options.address, { from: accounts[0] }).then(
       (result) => {
         router = result.contract;
-      }
+      },
     );
     await ERC20.at(daiAddress).then((result) => {
       DAI = result.contract;
@@ -120,7 +120,7 @@ contract.only("GUniInteractiveAdapter", () => {
         // fee
         [0, ZERO],
         // outputs
-        []
+        [],
       )
       .send({
         from: accounts[0],
@@ -162,7 +162,7 @@ contract.only("GUniInteractiveAdapter", () => {
           // fee
           [0, ZERO],
           // outputs
-          []
+          [],
         )
         .send({
           gas: 10000000,
@@ -199,7 +199,7 @@ contract.only("GUniInteractiveAdapter", () => {
           // fee
           [0, ZERO],
           // outputs
-          []
+          [],
         )
         .send({
           gas: 10000000,
@@ -251,12 +251,12 @@ contract.only("GUniInteractiveAdapter", () => {
               [fraxAddress, convertToShare(50), AMOUNT_ABSOLUTE],
             ],
             [0, ZERO],
-            [[daiFraxAddress, 0]]
+            [[daiFraxAddress, 0]],
           )
           .send({
             from: accounts[0],
             gas: 1000000,
-          })
+          }),
       );
     });
 
@@ -295,7 +295,7 @@ contract.only("GUniInteractiveAdapter", () => {
         .call()
         .then((result) => {
           console.log(
-            `dai amount before is     ${web3.utils.fromWei(result, "ether")}`
+            `dai amount before is     ${web3.utils.fromWei(result, "ether")}`,
           );
           daiAmount = result;
         });
@@ -311,7 +311,7 @@ contract.only("GUniInteractiveAdapter", () => {
         .call()
         .then((result) => {
           console.log(
-            `frax amount before is    ${web3.utils.fromWei(result, "ether")}`
+            `frax amount before is    ${web3.utils.fromWei(result, "ether")}`,
           );
           fraxAmount = result;
         });
@@ -325,7 +325,7 @@ contract.only("GUniInteractiveAdapter", () => {
         .call()
         .then((result) => {
           console.log(
-            `G-UNI amount before is ${web3.utils.fromWei(result, "ether")}`
+            `G-UNI amount before is ${web3.utils.fromWei(result, "ether")}`,
           );
         });
       await router.methods
@@ -346,7 +346,7 @@ contract.only("GUniInteractiveAdapter", () => {
             [fraxAddress, convertToShare(0.5), AMOUNT_RELATIVE],
           ],
           [0, ZERO],
-          [[daiFraxAddress, 0]]
+          [[daiFraxAddress, 0]],
         )
         .send({
           from: accounts[0],
@@ -359,21 +359,21 @@ contract.only("GUniInteractiveAdapter", () => {
         .call()
         .then((result) => {
           console.log(
-            `dai amount after is     ${web3.utils.fromWei(result, "ether")}`
+            `dai amount after is     ${web3.utils.fromWei(result, "ether")}`,
           );
         });
       await FRAX.methods["balanceOf(address)"](accounts[0])
         .call()
         .then((result) => {
           console.log(
-            `frax amount after is    ${web3.utils.fromWei(result, "ether")}`
+            `frax amount after is    ${web3.utils.fromWei(result, "ether")}`,
           );
         });
       await DAIFRAX.methods["balanceOf(address)"](accounts[0])
         .call()
         .then((result) => {
           console.log(
-            `G-UNI amount after is ${web3.utils.fromWei(result, "ether")}`
+            `G-UNI amount after is ${web3.utils.fromWei(result, "ether")}`,
           );
         });
       await DAI.methods["balanceOf(address)"](core.options.address)
@@ -401,8 +401,8 @@ contract.only("GUniInteractiveAdapter", () => {
           console.log(
             `         dai amount before is ${web3.utils.fromWei(
               result,
-              "ether"
-            )}`
+              "ether",
+            )}`,
           );
         });
       await FRAX.methods["balanceOf(address)"](accounts[0])
@@ -411,15 +411,15 @@ contract.only("GUniInteractiveAdapter", () => {
           console.log(
             `        frax amount before is ${web3.utils.fromWei(
               result,
-              "ether"
-            )}`
+              "ether",
+            )}`,
           );
         });
       await DAIFRAX.methods["balanceOf(address)"](accounts[0])
         .call()
         .then(async (result) => {
           console.log(
-            `G-UNI amount before is ${web3.utils.fromWei(result, "ether")}`
+            `G-UNI amount before is ${web3.utils.fromWei(result, "ether")}`,
           );
           daiFraxAmount = result;
         });
@@ -441,7 +441,7 @@ contract.only("GUniInteractiveAdapter", () => {
           ],
           [[daiFraxAddress, convertToShare(1), AMOUNT_RELATIVE]],
           [0, ZERO],
-          []
+          [],
         )
         .send({
           from: accounts[0],
@@ -454,21 +454,21 @@ contract.only("GUniInteractiveAdapter", () => {
         .call()
         .then((result) => {
           console.log(
-            `dai amount after is     ${web3.utils.fromWei(result, "ether")}`
+            `dai amount after is     ${web3.utils.fromWei(result, "ether")}`,
           );
         });
       await FRAX.methods["balanceOf(address)"](accounts[0])
         .call()
         .then((result) => {
           console.log(
-            `frax amount after is    ${web3.utils.fromWei(result, "ether")}`
+            `frax amount after is    ${web3.utils.fromWei(result, "ether")}`,
           );
         });
       await DAIFRAX.methods["balanceOf(address)"](accounts[0])
         .call()
         .then((result) => {
           console.log(
-            `G-UNI amount after is ${web3.utils.fromWei(result, "ether")}`
+            `G-UNI amount after is ${web3.utils.fromWei(result, "ether")}`,
           );
         });
       await DAI.methods["balanceOf(address)"](core.options.address)

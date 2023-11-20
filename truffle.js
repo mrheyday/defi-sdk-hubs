@@ -21,7 +21,7 @@ module.exports = {
         new HDWalletProvider(
           process.env.MNEMONIC,
           `wss://mainnet.infura.io/ws/v3/${process.env.INFURA_API_KEY}`,
-          0
+          0,
         ),
       network_id: 1,
       gas: 2000000,
@@ -34,7 +34,7 @@ module.exports = {
         new HDWalletProvider(
           process.env.MNEMONIC,
           `https://kovan.infura.io/v3/${process.env.INFURA_API_KEY}`,
-          0
+          0,
         ),
       network_id: 42,
       gas: 10000000,
