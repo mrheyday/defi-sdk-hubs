@@ -15,6 +15,6 @@
 | TokenSets      | Buy/sell token sets                       | Asset adapter                       |
 | Uniswap V1     | Add/remove liquidity <br> Exchange tokens | Asset adapter <br> Exchange adapter |
 | Uniswap V2     | Add/remove liquidity <br> Exchange tokens | Asset adapter <br> Exchange adapter |
-| Weth           | Swap ETH ↔ WETH                           | Asset adapter                       |
+| Weth           | Swap ETH ↔ WETH                          | Asset adapter                       |
 | Yearn          | Add/remove deposits                       | Asset adapter                       |
 | 0x             | Exchange tokens                           | Exchange adapter                    |
